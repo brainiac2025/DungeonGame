@@ -24,7 +24,7 @@ public class Main {
                     int damagetaken=myVariable.rnd.nextInt(myVariable.enemy_attack_damage);
                     enemyhealth-=damagedone;
                     myVariable.player_health-=damagetaken;
-                    System.out.println("\t> You Strike the "+enemy+"for"+damagedone+" damage. ");
+                    System.out.println("\t> You Strike the "+enemy+" for "+damagedone+" damage. ");
                     System.out.println("\t> You receive "+damagetaken+" in retaliation");
 
                     if(myVariable.player_health<1) {
@@ -49,7 +49,7 @@ public class Main {
                 }
                 else if(myinput.equals("3")){
                     System.out.println("\t> You are not Strong!!!\n\t You run away from the enemy "+enemy+" !!");
-                    continue;
+                    break;
 
                 }
                 else{
@@ -74,12 +74,30 @@ public class Main {
             System.out.println("What would you like to do now? ");
             System.out.println("1 Continue Fighting? ");
             System.out.println("2 Exit Game");
+            String input=myVariable.input.nextLine();
 
+            while(!input.equals("1") && !input.equals("2")){
+                System.out.println("Invalid Command");
+                input=myVariable.input.nextLine();
+            }
+            if(input.equals("1")){
+                System.out.println("You can continue your adventure");
 
+            }
+            else if(input.equals("2")){
+                System.out.println("You have successfully exit the game");
+                break;
+            }
         }
+
+    }
+    public static void GameOn(){
 
     }
     public static void main(String[] args) {
         System.out.println("WELCOME TO DUNGEON ADVENTURE GAME");
+        Main game= new Main();
+        game.initiateGame();
+
     }
 }
